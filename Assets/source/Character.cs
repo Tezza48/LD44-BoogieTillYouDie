@@ -10,10 +10,19 @@ public class Character : MonoBehaviour
 	// Accumulation of tapping power you've built up
 	protected float currentDanceAmount;
 
+	protected bool isFighting;
+
+	public float CurrentDanceAmount { get => currentDanceAmount; }
+	public bool IsFighting { get => isFighting; set => isFighting = value; }
+
 	protected void decayDance()
 	{
 		currentDanceAmount -= danceDecay * Time.deltaTime;
 		currentDanceAmount = Mathf.Max(currentDanceAmount, 0);
 	}
-	public float CurrentDanceAmount { get => currentDanceAmount; }
+
+	public virtual void Kill()
+	{
+		Destroy(gameObject);
+	}
 }

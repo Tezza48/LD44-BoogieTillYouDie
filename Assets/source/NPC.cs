@@ -9,7 +9,14 @@ public class NPC : Character
 	private IEnumerator AutoDance()
 	{
 		while(true) {
-			currentDanceAmount += power;
+			if(isFighting)
+			{
+				currentDanceAmount += power;
+			}
+			else
+			{
+				currentDanceAmount = 0.0f;
+			}
 			yield return new WaitForSeconds(danceCooldown);
 		}
 	} 
