@@ -12,6 +12,7 @@ public class NPC : Character
 			if(isFighting)
 			{
 				currentDanceAmount += power;
+				spriteRenderer.sprite = danceMoveSprites[Random.Range(0, danceMoveSprites.Length)];
 			}
 			else
 			{

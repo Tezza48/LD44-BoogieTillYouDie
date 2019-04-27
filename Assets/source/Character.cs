@@ -9,11 +9,20 @@ public class Character : MonoBehaviour
 
 	// Accumulation of tapping power you've built up
 	protected float currentDanceAmount;
+	public Sprite defaultSprite;
+	public Sprite[] danceMoveSprites;
+	protected SpriteRenderer spriteRenderer;
 
 	protected bool isFighting;
 
 	public float CurrentDanceAmount { get => currentDanceAmount; }
 	public bool IsFighting { get => isFighting; set => isFighting = value; }
+
+	void Awake()
+	{
+		spriteRenderer = GetComponent<SpriteRenderer>();
+		StartCoroutine(handleResetSprite());
+	}
 
 	protected void decayDance()
 	{
@@ -24,5 +33,14 @@ public class Character : MonoBehaviour
 	public virtual void Kill()
 	{
 		Destroy(gameObject);
+	}
+
+	private IEnumerator handleResetSprite()
+	{
+		while(true)
+		{
+			spriteRenderer.sprite = defaultSprite;
+			yield return new WaitForSeconds(1);
+		}
 	}
 }

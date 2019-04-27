@@ -1,25 +1,30 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerCharacter: Character
 {
+
 	private void Update()
 	{
-		if (isFighting) 
-		{
-			if (Input.GetKeyDown(KeyCode.UpArrow) ||
+		bool doDance = Input.GetKeyDown(KeyCode.UpArrow) ||
 				Input.GetKeyDown(KeyCode.DownArrow) ||
 				Input.GetKeyDown(KeyCode.LeftArrow) ||
-				Input.GetKeyDown(KeyCode.RightArrow))
-			{
-				currentDanceAmount += power;
-				Debug.Log("Player is Dancing");
-			}
+				Input.GetKeyDown(KeyCode.RightArrow);
 
+		if (isFighting) 
+		{
 			decayDance();
 		}
 		else
 		{
 			currentDanceAmount = 0.0f;
+		}
+
+		if (doDance)
+		{
+			if (isFighting)
+				currentDanceAmount += power;
+			spriteRenderer.sprite = danceMoveSprites[Random.Range(0, danceMoveSprites.Length)];
 		}
 
 		Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"),
