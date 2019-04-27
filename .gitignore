@@ -60,3 +60,6 @@ crashlytics-build.properties
 
 
 # End of https://www.gitignore.io/api/unity
+
+# mainly for krita backups but others may use this format for backups like word
+*.*~
