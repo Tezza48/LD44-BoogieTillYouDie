@@ -63,3 +63,4 @@ crashlytics-build.properties
 
 # mainly for krita backups but others may use this format for backups like word
 *.*~
+.*.kra-autosave.kra
