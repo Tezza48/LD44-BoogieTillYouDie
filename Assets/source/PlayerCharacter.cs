@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerCharacter: Character
 {
@@ -7,6 +8,12 @@ public class PlayerCharacter: Character
 	public bool doInteraction = false;
 
 	public CameraFollow cameraFollow;
+	public AudioSource battleAudio;
+
+	void Start()
+	{
+		battleAudio = GetComponent<AudioSource>();
+	}
 
 	private void Update()
 	{
@@ -38,7 +45,7 @@ public class PlayerCharacter: Character
 		Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"),
 			Input.GetAxisRaw("Vertical"));
 		if (!isFighting)
-			transform.position += (Vector3)input * Time.deltaTime;
+			transform.position += (Vector3)input.normalized * Time.deltaTime * 1.5f;
 	}
 
 	void OnTriggerStay2D(Collider2D collider)
@@ -52,7 +59,7 @@ public class PlayerCharacter: Character
 
 				if (doInteraction)
 				{
-					FightManager.StartFight(new Character[] {this, character});
+					StartFightingWith(character);
 				}
 
 			}
@@ -62,5 +69,29 @@ public class PlayerCharacter: Character
 	void OnTriggerExit2D(Collider2D collider)
 	{
 		danceButtonPrompt.gameObject.SetActive(false);
+	}
+
+	public override void Kill()
+	{
+		StartCoroutine(PerformDeathActions());
+	}
+
+	public override void Win()
+	{
+		base.Win();
+		battleAudio.Stop();
+	}
+
+	private void StartFightingWith(Character other)
+	{
+		FightManager.StartFight(new Character[] {this, other}, 20.0f);
+		battleAudio.Play();
+	}
+
+	private IEnumerator PerformDeathActions()
+	{
+
+		yield return new WaitForSeconds(2.0f);
+		SceneManager.LoadScene("MenuScene");
 	}
 }

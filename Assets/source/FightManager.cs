@@ -26,7 +26,7 @@ public class FightManager : MonoBehaviour
 		{
 			if (fight.IsFightOver())
 			{
-				fight.GetWinner().IsFighting = false;
+				fight.GetWinner().Win();
 				var losers = fight.GetLosers();
 				foreach (var loser in losers)
 				{
@@ -41,7 +41,7 @@ public class FightManager : MonoBehaviour
 		}
 	}
 
-	public static void StartFight(Character[] characters)
+	public static void StartFight(Character[] characters, float fightlength = 5.0f)
 	{
 		if (instance == null) 
 		{
@@ -54,7 +54,7 @@ public class FightManager : MonoBehaviour
 			character.IsFighting = true;
 		}
 
-		instance.activeFights.Add(new Fight(characters));
+		instance.activeFights.Add(new Fight(characters, fightlength));
 	}
 
 	void OnDestroy() {

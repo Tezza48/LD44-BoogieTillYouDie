@@ -35,6 +35,11 @@ public class Character : MonoBehaviour
 		Destroy(gameObject);
 	}
 
+	public virtual void Win()
+	{
+		isFighting = false;
+	}
+
 	private IEnumerator handleResetSprite()
 	{
 		while(true)
