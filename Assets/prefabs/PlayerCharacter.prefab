@@ -131,17 +131,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2584ae7c3e8146f4d809c1680d574450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 1
+  level: 0
   danceDecay: 5
+  xpMap: {fileID: 11400000, guid: 0f0be10ee49d69b4f91b1544707d9124, type: 2}
+  deathEffect: {fileID: 0}
   defaultSprite: {fileID: 7152930139536384079, guid: 431b9e160832a1f4085b2f24f5685470,
     type: 3}
   danceMoveSprites:
   - {fileID: -5725962078152895296, guid: 431b9e160832a1f4085b2f24f5685470, type: 3}
   - {fileID: -8401692288953904933, guid: 431b9e160832a1f4085b2f24f5685470, type: 3}
   danceButtonPrompt: {fileID: 0}
-  doInteraction: 0
+  fightMeter: {fileID: 0}
   cameraFollow: {fileID: 0}
-  battleAudio: {fileID: 0}
+  battleAudio: {fileID: 4044152058896624481}
+  doInteraction: 0
 --- !u!212 &4044152058896624511
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -228,7 +231,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.6875}
+  m_Offset: {x: 0, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -239,7 +242,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.125}
+  m_Size: {x: 0.25, y: 0.5}
   m_EdgeRadius: 0
 --- !u!50 &4044152058896624483
 Rigidbody2D:

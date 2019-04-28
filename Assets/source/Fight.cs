@@ -23,7 +23,7 @@ public struct Fight
 	{
 		GUILayout.BeginVertical();
 		
-		GUILayout.Label("Fight: " + (Time.time - startTime).ToString("N2"));
+		GUILayout.Label("Fight: " + (fightLength - (Time.time - startTime)).ToString("N2"));
 
 		foreach (Character character in characters)
 		{

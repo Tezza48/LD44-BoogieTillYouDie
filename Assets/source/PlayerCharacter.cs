@@ -8,10 +8,9 @@ public class PlayerCharacter: Character
 {
 	public UIButtonPrompt danceButtonPrompt;
 	public UIFightMeter fightMeter;
-	public bool doInteraction = false;
-
 	public CameraFollow cameraFollow;
 	public AudioSource battleAudio;
+	public bool doInteraction = false;
 
 	void Start()
 	{
@@ -41,7 +40,7 @@ public class PlayerCharacter: Character
 		if (doDance)
 		{
 			if (isFighting)
-				currentDanceAmount += power;
+				currentDanceAmount += xpMap.levels[level].power;
 
 			SelectRandomDanceSprite();
 		}
@@ -90,7 +89,8 @@ public class PlayerCharacter: Character
 
 	private void StartFightingWith(Character other)
 	{
-		var fight = FightManager.StartFight(new Character[] {this, other}, (other.fightTime + this.fightTime) / 2.0f);
+		var fightTime = xpMap.GetFightLength(this.level, other.level);
+		var fight = FightManager.StartFight(new Character[] {this, other}, fightTime);
 		battleAudio.loop = true;
 		battleAudio.Play();
 		

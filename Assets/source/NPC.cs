@@ -11,7 +11,7 @@ public class NPC : Character
 		while(true) {
 			if(isFighting)
 			{
-				currentDanceAmount += power;
+				currentDanceAmount += xpMap.levels[level].power;
 				SelectRandomDanceSprite();
 			}
 			else
