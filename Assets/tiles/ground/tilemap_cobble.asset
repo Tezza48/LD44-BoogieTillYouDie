@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: tilemap_brick
+  m_Name: tilemap_cobble
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -3488356055531105624, guid: 2e9323389c20b6044a0cf42254b49471,
+  m_Sprite: {fileID: 8490642196906846815, guid: 2e9323389c20b6044a0cf42254b49471,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.65241194, g: 0.75745595, b: 0.764151, a: 1}
   m_Transform:
     e00: 1
     e01: 0

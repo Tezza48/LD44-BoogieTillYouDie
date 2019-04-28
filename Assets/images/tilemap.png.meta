@@ -11,6 +11,15 @@ TextureImporter:
   - first:
       213: 3093125648999201355
     second: tilemap_dirt
+  - first:
+      213: 8490642196906846815
+    second: tilemap_0
+  - first:
+      213: 7988907048659085410
+    second: tilemap_1
+  - first:
+      213: 1873917168148291061
+    second: tilemap_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -50,8 +59,8 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
-  spriteMeshType: 1
+  spriteExtrude: 0
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 8
@@ -69,10 +78,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 64
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -80,10 +89,10 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 64
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -91,10 +100,10 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 64
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -102,10 +111,10 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: WebGL
-    maxTextureSize: 2048
+    maxTextureSize: 64
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -115,11 +124,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tilemap_cobble
+      name: tilemap_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1016
+        y: 56
         width: 8
         height: 8
       alignment: 0
@@ -129,18 +138,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef192e482eeb8e144aa97860e9b6cace
-      internalID: -1951279011014177175
+      spriteID: eb9aa5bc52ebf574087bd075ccd3d5b7
+      internalID: 8490642196906846815
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_brick
+      name: tilemap_1
       rect:
         serializedVersion: 2
         x: 8
-        y: 1016
+        y: 56
         width: 8
         height: 8
       alignment: 0
@@ -150,18 +159,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28ab50df3e212b14db681e1605b2e303
-      internalID: -3488356055531105624
+      spriteID: 80edabdc43466d14e96ff8ce900e6e49
+      internalID: 7988907048659085410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_dirt
+      name: tilemap_2
       rect:
         serializedVersion: 2
         x: 16
-        y: 1016
+        y: 56
         width: 8
         height: 8
       alignment: 0
@@ -171,8 +180,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2df5df24e98af44685d92d61719fe6e
-      internalID: 3093125648999201355
+      spriteID: e560e245a95a5494b9fa3b33a5aad28e
+      internalID: 1873917168148291061
       vertices: []
       indices: 
       edges: []
