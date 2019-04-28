@@ -7,6 +7,8 @@ public class Character : MonoBehaviour
 	public float power;
 	public float danceDecay = 5.0f;
 
+	public float fightTime = 5.0f;
+
 	// Accumulation of tapping power you've built up
 	protected float currentDanceAmount;
 	public Sprite defaultSprite;

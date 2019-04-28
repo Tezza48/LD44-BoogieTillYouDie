@@ -41,12 +41,12 @@ public class FightManager : MonoBehaviour
 		}
 	}
 
-	public static void StartFight(Character[] characters, float fightlength = 5.0f)
+	public static Fight? StartFight(Character[] characters, float fightlength = 5.0f)
 	{
 		if (instance == null) 
 		{
 			Debug.Log("FightManager Instance has not been created yet");
-			return;
+			return null;
 		}
 
 		foreach (var character in characters)
@@ -55,6 +55,7 @@ public class FightManager : MonoBehaviour
 		}
 
 		instance.activeFights.Add(new Fight(characters, fightlength));
+		return instance.activeFights[instance.activeFights.Count - 1];
 	}
 
 	void OnDestroy() {
@@ -64,6 +65,7 @@ public class FightManager : MonoBehaviour
 		}
 	}
 
+#if UNITY_EDITOR
 	void OnGUI()
 	{
 		foreach (var fight in activeFights)
@@ -73,4 +75,5 @@ public class FightManager : MonoBehaviour
 			GUILayout.EndHorizontal();
 		}
 	}
+#endif
 }

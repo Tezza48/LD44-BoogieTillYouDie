@@ -33,6 +33,14 @@ public struct Fight
 		GUILayout.EndVertical();
 	}
 
+	// Only works with 2 people
+	public float GetWinPercentage()
+	{
+		var c0DanceAmmount = characters[0].CurrentDanceAmount;
+		var c1DanceAmmount = characters[1].CurrentDanceAmount;
+		return characters[0].CurrentDanceAmount / (c0DanceAmmount + c1DanceAmmount); 
+	}
+
 	public bool IsFightOver()
 	{
 		return Time.time > startTime + fightLength;

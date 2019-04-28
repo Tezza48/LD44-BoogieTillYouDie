@@ -1,10 +1,13 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class PlayerCharacter: Character
 {
 	public UIButtonPrompt danceButtonPrompt;
+	public UIFightMeter fightMeter;
 	public bool doInteraction = false;
 
 	public CameraFollow cameraFollow;
@@ -82,18 +85,22 @@ public class PlayerCharacter: Character
 	{
 		base.Win();
 		battleAudio.loop = false;
+		fightMeter.gameObject.SetActive(false);
 	}
 
 	private void StartFightingWith(Character other)
 	{
-		FightManager.StartFight(new Character[] {this, other}, 5.0f);
+		var fight = FightManager.StartFight(new Character[] {this, other}, (other.fightTime + this.fightTime) / 2.0f);
 		battleAudio.loop = true;
 		battleAudio.Play();
+		
+		fightMeter.FightToWatch = fight.Value;
+		fightMeter.gameObject.SetActive(true);
 	}
 
 	private IEnumerator PerformDeathActions()
 	{
-
+		fightMeter.gameObject.SetActive(false);
 		yield return new WaitForSeconds(2.0f);
 		SceneManager.LoadScene("MenuScene");
 	}
