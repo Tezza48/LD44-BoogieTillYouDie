@@ -14,6 +14,7 @@ public class Character : MonoBehaviour
 	protected SpriteRenderer spriteRenderer;
 
 	protected bool isFighting;
+	protected float lastDanceTime;
 
 	public float CurrentDanceAmount { get => currentDanceAmount; }
 	public bool IsFighting { get => isFighting; set => isFighting = value; }
@@ -30,6 +31,16 @@ public class Character : MonoBehaviour
 		currentDanceAmount = Mathf.Max(currentDanceAmount, 0);
 	}
 
+	protected void SelectRandomDanceSprite()
+	{
+		spriteRenderer.sprite = danceMoveSprites[Random.Range(0, danceMoveSprites.Length)];
+		transform.localScale = new Vector3(
+			(Random.value > 0.5f) ? -1.0f : 1.0f,
+			(Random.value > 0.99f) ? -1.0f : 1.0f, 
+			1.0f);
+		lastDanceTime = Time.time;
+	}
+
 	public virtual void Kill()
 	{
 		Destroy(gameObject);
@@ -44,8 +55,12 @@ public class Character : MonoBehaviour
 	{
 		while(true)
 		{
-			spriteRenderer.sprite = defaultSprite;
-			yield return new WaitForSeconds(1);
+			yield return new WaitForEndOfFrame();
+			if (lastDanceTime < Time.time - 1.0f)
+			{
+				spriteRenderer.sprite = defaultSprite;
+				transform.localScale = Vector3.one;
+			}
 		}
 	}
 }

@@ -17,7 +17,7 @@ public class PlayerCharacter: Character
 
 	private void Update()
 	{
-		doInteraction = Input.GetKeyUp(KeyCode.F);
+		doInteraction = Input.GetKeyDown(KeyCode.F);
 
 		bool doDance = Input.GetKeyDown(KeyCode.UpArrow) ||
 				Input.GetKeyDown(KeyCode.DownArrow) ||
@@ -39,11 +39,13 @@ public class PlayerCharacter: Character
 		{
 			if (isFighting)
 				currentDanceAmount += power;
-			spriteRenderer.sprite = danceMoveSprites[Random.Range(0, danceMoveSprites.Length)];
+
+			SelectRandomDanceSprite();
 		}
 
 		Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"),
 			Input.GetAxisRaw("Vertical"));
+
 		if (!isFighting)
 			transform.position += (Vector3)input.normalized * Time.deltaTime * 1.5f;
 	}
@@ -79,12 +81,13 @@ public class PlayerCharacter: Character
 	public override void Win()
 	{
 		base.Win();
-		battleAudio.Stop();
+		battleAudio.loop = false;
 	}
 
 	private void StartFightingWith(Character other)
 	{
-		FightManager.StartFight(new Character[] {this, other}, 20.0f);
+		FightManager.StartFight(new Character[] {this, other}, 5.0f);
+		battleAudio.loop = true;
 		battleAudio.Play();
 	}
 
