@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
+  currentXP: 0
   danceDecay: 5
   xpMap: {fileID: 11400000, guid: 0f0be10ee49d69b4f91b1544707d9124, type: 2}
   deathEffect: {fileID: 5907207901177856814, guid: 61bb4a143ef1a4d439b1626e5f927565,
@@ -141,6 +142,8 @@ MonoBehaviour:
   danceMoveSprites:
   - {fileID: -8401692288953904933, guid: 431b9e160832a1f4085b2f24f5685470, type: 3}
   - {fileID: -5725962078152895296, guid: 431b9e160832a1f4085b2f24f5685470, type: 3}
+  UILevelDisplay: {fileID: 8618248516138478317, guid: b337657f595740742b2338dd9011f044,
+    type: 3}
   danceCooldown: 0.15
 --- !u!212 &1703260810724456152
 SpriteRenderer:

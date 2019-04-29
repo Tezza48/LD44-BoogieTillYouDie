@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIButtonPrompt : MonoBehaviour
+public class UITrackObjectInWorld : MonoBehaviour
 {
 	public Transform worldTarget;
 
@@ -16,7 +16,6 @@ public class UIButtonPrompt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		transform.SetAsLastSibling();
         trans.position = Camera.main.WorldToScreenPoint(worldTarget.position);
     }
 }

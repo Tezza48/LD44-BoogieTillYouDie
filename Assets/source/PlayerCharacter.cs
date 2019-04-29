@@ -19,6 +19,7 @@ public class PlayerCharacter: Character
 
 	private void Update()
 	{
+		UpdateLevelDisplay();
 		doInteraction = Input.GetKeyDown(KeyCode.F);
 
 		bool doDance = Input.GetKeyDown(KeyCode.UpArrow) ||
@@ -80,9 +81,9 @@ public class PlayerCharacter: Character
 		StartCoroutine(PerformDeathActions());
 	}
 
-	public override void Win()
+	public override void Win(float xpReward)
 	{
-		base.Win();
+		base.Win(xpReward);
 		battleAudio.loop = false;
 		fightMeter.gameObject.SetActive(false);
 	}
@@ -101,6 +102,8 @@ public class PlayerCharacter: Character
 	private IEnumerator PerformDeathActions()
 	{
 		fightMeter.gameObject.SetActive(false);
+		Destroy(levelText.gameObject);
+		
 		yield return new WaitForSeconds(2.0f);
 		SceneManager.LoadScene("MenuScene");
 	}

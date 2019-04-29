@@ -17,14 +17,14 @@ MonoBehaviour:
     reward: 1
     nextLevelRequirement: 4
   - power: 1.3
-    reward: 0
-    nextLevelRequirement: 0
-  - power: 0
-    reward: 0
-    nextLevelRequirement: 0
-  - power: 0
-    reward: 0
-    nextLevelRequirement: 0
-  - power: 0
-    reward: 0
-    nextLevelRequirement: 0
+    reward: 2
+    nextLevelRequirement: 8
+  - power: 1.9
+    reward: 4
+    nextLevelRequirement: 16
+  - power: 2.5
+    reward: 8
+    nextLevelRequirement: 32
+  - power: 5
+    reward: 16
+    nextLevelRequirement: 64

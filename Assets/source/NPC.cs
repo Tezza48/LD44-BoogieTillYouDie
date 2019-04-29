@@ -29,6 +29,7 @@ public class NPC : Character
 
 	void Update()
 	{
+		UpdateLevelDisplay();
 		decayDance();
 	}
 
