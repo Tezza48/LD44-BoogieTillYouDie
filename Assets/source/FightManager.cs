@@ -26,12 +26,14 @@ public class FightManager : MonoBehaviour
 		{
 			if (fight.IsFightOver())
 			{
-				fight.GetWinner().Win();
 				var losers = fight.GetLosers();
+				var xp = 0.0f;
 				foreach (var loser in losers)
 				{
+					xp += loser.xpMap.levels[loser.level].reward;
 					loser.Kill();
 				}
+				fight.GetWinner().Win(xp);
 				finishedFights.Add(fight);	
 			}
 		}
